@@ -50,9 +50,9 @@ class SignupForm(forms.ModelForm):
 
 class ChangePasswordForm(forms.ModelForm):
 	id = forms.CharField(widget=forms.HiddenInput())
-	old_password = forms.CharField(widget=forms.PasswordInput(), label="Old password", required=True)
-	new_password = forms.CharField(widget=forms.PasswordInput(), label="New password", required=True)
-	confirm_password = forms.CharField(widget=forms.PasswordInput(), label="Confirm new password", required=True)
+	old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input is-medium'}), label="Old password", required=True)
+	new_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input is-medium'}), label="New password", required=True)
+	confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input is-medium'}), label="Confirm new password", required=True)
 
 	class Meta:
 		model = User
