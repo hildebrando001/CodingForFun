@@ -7,8 +7,8 @@ from django.utils.text import slugify
 from django.urls import reverse
 
 
-def user_directory_path(instace, filename):
-    return 'user_{0}/{1}'.format(instace.user.id, filename) #This file will be uploaded to MEDIA_ROOT /user id/filename
+def user_directory_path(instance, filename):
+    return 'user_{0}/{1}'.format(instance.user.id, filename) #This file will be uploaded to MEDIA_ROOT /user id/filename
 
 
 class Tag(models.Model):
@@ -16,13 +16,14 @@ class Tag(models.Model):
     slug = models.SlugField(null=False, unique=True)
 
     class Meta:
+        verbose_name='Tag'
         verbose_name_plural='Tags'
 
     def get_absolute_url(self):
         return reverse('tags', arg=[self.slug])
 
     def __str__(self):
-        self.title
+        return self.title
 
     def save(self, *args, **kwargs): #Multiplos argumentos
         if not self.slug:
@@ -42,9 +43,6 @@ class Post(models.Model):
         return reverse('postdetails', args=[str(self.id)])
     
 
-    def __str__(self):
-        return self.posted
-
 class Follow(models.Model):
     follower = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follower')
     following = models.ForeignKey(User, on_delete=models.CASCADE, related_name='following')
@@ -59,9 +57,9 @@ class Stream(models.Model): #send your posts to your folowers
     def add_post(sender, instance, *args, **kwargs):
         post = instance
         user = post.user
-        followers = Follow.object.all(following=user) #Get all the users that is following you
+        followers = Follow.objects.all().filter(following=user) #Get all the users that is following you
         for follower in followers:
-            stream = Stream(post=post, user=follower.follower, date=post.posterd, following=user)
+            stream = Stream(post=post, user=follower.follower, date=post.posted, following=user)
             stream.save()
 
 post_save.connect(Stream.add_post, sender=Post)
