@@ -12,7 +12,7 @@ class Person:
     def __str__(self):
         return f"Name: {self.name}, Age: {self.age}, Height: {self.height}"
 
-    def get_older(years): # We can define all kind of functions
+    def get_older(self, years): # We can define all kind of functions
         self.age += years
 
 person1 = Person("Alessandra", 23, 165)
