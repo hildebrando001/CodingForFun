@@ -1,5 +1,5 @@
-<group>
-    <person id="1">
+<?xml version="1.0" ?><group>
+    <person id="100">
         <name>Mike Smith</name>
         <age>34</age>
         <weight>90</weight>
@@ -12,21 +12,27 @@
         <height>188</height>
     </person>
     <person id="3">
-        <name>Bob Johnson</name>
+        <name>New Name</name>
         <age>25</age>
         <weight>76</weight>
         <height>190</height>
     </person>
     <person id="4">
         <name>Sara Jones</name>
-        <age>56</age>
+        <age>-10</age>
         <weight>82</weight>
         <height>170</height>
     </person>
-    <person id="1">
+    <person id="5">
         <name>Mike Smith</name>
         <age>34</age>
         <weight>90</weight>
         <height>175</height>
+    </person>
+        <person id="6">
+        <name>paul Green</name>
+        <age>19</age>
+        <weight>80</weight>
+        <height>179</height>
     </person>
 </group>
