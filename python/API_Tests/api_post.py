@@ -1,11 +1,17 @@
 import requests
 
-url = 'http://httpbin.org/post'
+url = 'http://httpbin.org/post' # GET / POST / PUT / DELETE
 payload = {'curso':'Python_API','nome':'Hildebrando'}
 headers = {'Content-Type': 'application/json', 'access-token': '12345'} # Tells to the server u're sending in a json format
 # response = requests.post(url, data=payload) # all values will be into form attribute "form" :{}
 # response = requests.post(url, data=json.dumps(payload)) # It goes to data attribute
-response = requests.post(url, json=payload, headers=headers) #convert toa json object
+response = requests.post(url, json=payload, headers=headers) #convert toa json object # GET / POST / PUT / DELETE
+"""
+GET
+POST
+PUT
+DELETE
+"""
 
 print(response.url)
 
